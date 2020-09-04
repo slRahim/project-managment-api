@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/register','Api\RegisterController@register');
+
 
 // Route::get('/projects','Api\ProjectController@index');
 // Route::post('/projects','Api\ProjectController@store');
 // Route::get('/projects/{id}','Api\ProjectController@show');
 // Route::put('/projects/{id}','Api\ProjectController@update');
-// Route::delete('/projects/{id}','Api\ProjectController@destroy'); 
+// Route::delete('/projects/{id}','Api\ProjectController@destroy');
+
+
 
 Route::middleware('auth:api')->group(function () {
     Route::resource('/projects','Api\ProjectController');
