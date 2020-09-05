@@ -8,9 +8,14 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <passport-clients></passport-clients>
-                    <passport-authorized-clients></passport-authorized-clients>
-                    <passport-personal-access-tokens></passport-personal-access-tokens>
+                    @if(true)
+                        <h5>Welcome Back {{Auth::user()->name}}</h5>
+                    @endif
+                    @if(Auth::user()->admin != 0)
+                        <passport-clients></passport-clients>
+                        </br>
+                        <passport-authorized-clients></passport-authorized-clients>
+                    @endif
                 </div>
             </div>
         </div>
