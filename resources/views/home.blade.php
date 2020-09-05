@@ -10,6 +10,8 @@
                 <div class="card-body">
                     @if(true)
                         <h5>Welcome Back {{Auth::user()->name}}</h5>
+                        </br>
+                        <passport-authorized-clients></passport-authorized-clients>
                     @endif
                     @if(Auth::user()->admin != 0)
                         <passport-clients></passport-clients>
