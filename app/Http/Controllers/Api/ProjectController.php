@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller ;
 
@@ -13,22 +14,14 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $projects = Project::all();
+        $projects = User::find($id)->projects ;
 
         return $projects ;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -63,16 +56,6 @@ class ProjectController extends Controller
         return $project ;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Project $project)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

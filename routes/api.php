@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
+Route::middleware('auth:api')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return Auth::user() ;
+    });
+    Route::get('/user/{id}/projects','Api\ProjectController@index' );
 
-
-// Route::get('/projects','Api\ProjectController@index');
-// Route::post('/projects','Api\ProjectController@store');
-// Route::get('/projects/{id}','Api\ProjectController@show');
-// Route::put('/projects/{id}','Api\ProjectController@update');
-// Route::delete('/projects/{id}','Api\ProjectController@destroy');
-
-
+});
 
 Route::middleware('auth:api')->group(function () {
     Route::resource('/projects','Api\ProjectController');
+
 });
