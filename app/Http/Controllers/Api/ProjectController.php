@@ -36,6 +36,7 @@ class ProjectController extends Controller
        $project->sub_title=$request->sub_title ;
        $project->description=$request->description ;
        $project->status=$request->status ;
+       $project->user_id=$request->user_id ;
 
        $project->save() ;
 
