@@ -39,9 +39,6 @@ class ProjectController extends Controller
        $project->user_id=$request->user_id ;
 
        $project->save() ;
-
-       
-       
     }
 
     /**
